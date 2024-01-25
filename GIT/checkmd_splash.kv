@@ -1,0 +1,30 @@
+MDScreen:
+    name: "splashScreen"
+    on_enter: self.ids.progress.start()
+
+
+    FloatLayout:
+        md_bg_color: 0,3,0,9
+
+        Image:
+            source: "Pictures/Exampal logo.PNG"
+            allow_stretch: True
+            anim_delay: 0
+            anim_reset: True
+
+
+
+        BoxLayout:
+            md_bg_color: 255,172,66,9
+            pos_hint: {"center_y": .05, 'center_x': .5}
+            padding:  "10dp"
+            size_hint_y: None
+            height: "10dp"
+
+            MDProgressBar:
+                color: 9,0,0,9
+                id: progress
+                orientation: "horizontal"
+                type: "indeterminate"
+                running_duration: 1
+                catching_duration: 1

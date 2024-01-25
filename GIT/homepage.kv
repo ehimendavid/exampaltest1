@@ -1,0 +1,144 @@
+ScreenManager:
+    HomePage:
+    InfoPage:
+    SettingsPage:
+
+
+
+<HomePage>:
+    name: 'home'
+    orientation: 'vertical'
+
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 1,1,1,9
+        MDBoxLayout:
+            height: 40
+            md_bg_color: 1,1,1,9
+            padding: '5dp'
+            adaptive_height: True
+            radius:[40]
+
+            MDIconButton:
+                icon: "menu"
+                text_color: 0,0,3,9
+
+
+
+            Image:
+                source:'Pictures/new logo.png'
+                halign: 'center'
+                valign: 'center'
+
+            MDIconButton:
+                icon: "lightbulb-outline"
+                text_color: 0,0,3,9
+
+
+
+        MDBoxLayout:
+            radius:dp(46),dp(46),dp(1),dp(1)
+            elevation: 5
+            ScrollView:
+                MDGridLayout:
+                    cols: 2
+                    rows:9
+                    padding:dp(20)
+                    spacing:dp(20)
+                    adaptive_height:True
+
+                    GridCard:
+                        text: 'WASSCE'
+
+                        on_press: root.manager.current = 'waecsubject'
+                        source:"Pictures/waec (2).PNG"
+                            #pos_hint:{'center_x':.5,'center_y':.5}
+
+                    GridCard:
+
+                        on_press: root.manager.current = 'jambsubject'
+                        source:'Pictures/jamb.PNG'
+                        text: 'JAMB'
+
+                    GridCard:
+
+                        on_press: root.manager.current = 'necosubject'
+                        source:'Pictures/waec (2).PNG'
+                        text: 'NECO'
+
+                    GridCard:
+                        source:'Pictures/'
+
+                        on_press: root.manager.current=''
+                        text: 'Mock Exam'
+
+                    GridCard:
+
+                        on_press: root.manager.current = ''
+                        source:'Pictures/syllabus.PNG'
+                        text: 'SYLLABUS'
+                    GridCard:
+                        source:'Pictures/'
+
+                        text: 'Time Table'
+                        font_size: 10
+
+
+        MDBoxLayout:
+            md_bg_color:1,1,1,9
+            adaptive_height: True
+            spacing: 10
+            padding: 10
+
+
+            MDIconButton:
+                icon: 'home'
+                on_press: root.manager.current = 'home'
+            FitImage:
+                source: "Pictures/profile_pic.png"
+                size_hint_y: None
+                size_hint_x: None
+                width: "40dp"
+                height: "40dp"
+                radius: [40]
+
+            #MDIconButton:
+                #icon: 'account'
+            MDIconButton:
+                icon: 'magnify'
+                on_press: root.manager.current = 'search'
+            MDIconButton:
+                icon: 'dots-vertical'
+                on_press: root.manager.current = 'info'
+            MDIconButton:
+                icon: 'cog-outline'
+                on_press: root.manager.current = "settings"
+
+
+
+
+<GridCard@MDCard>:
+    ripple_behavior:True
+    orientation:'vertical'
+    source:''
+    elevation: 2
+    radius:1
+    padding:'20dp'
+    text: ''
+    spacing:'15dp'
+    size_hint_y:None
+    height:'180dp'
+    Image:
+        source: root.source
+    MDBoxLayout:
+        orientation:'vertical'
+        adaptive_height:True
+
+        MDLabel:
+            markup: True
+            text:root.text
+            adaptive_height:True
+            halign:'center'
+            font_size: 14
+
